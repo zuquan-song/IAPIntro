@@ -155,9 +155,9 @@ See ([EthernetFrame](Format.md) )
 
 
 - Problems
-- Solutions:  [锚点](#anchor)
+- Solutions: [Subnetting](#subnetting)
 
-### <span id = "subnetting">Subnetting</span>
+### Subnetting
 
 - goals
 
