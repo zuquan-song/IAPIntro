@@ -10,7 +10,38 @@ Format
 - Frame Type: used to identify the payload
 - CRC: used for error control
 
-### IPv4 Package Format
+#### Ethernet Encapsulation (RFC 894)
+
+
+
+![chw-8](sources/ch2-8.png)
+
+-  Dest. Addr., Src. Addr.: MAC addresses are 48 bit
+
+- Type: Identifies the content of the data field **(must ≥ Ox0600)**
+- CRC: Cyclic Redundancy Check
+
+#### IEEE 802.2/802.3 Encapsulation
+
+![ch2-9](sources/ch2-9.png)
+
+- Destination address, Source address: MAC addresses are 48 bit (displayed as 12 hexadecimal characters)
+- Length: frame length in number of bytes **(<Ox0600, 1,500 bytes → Ox05dc)**
+- DSAP, SSAP: always set to 0xaa
+- Ctrl: set t o 3
+- Org code: set to 0
+- Type field: identifies the content of the data field
+- CRC: cyclic redundancy check
+- Total frame size: 64 bytes to 1518 bytes
+  Overhead: 38 bytes including 12 bytes Inter Frame Gap (IFG)
+
+**DISCUSS** How to distinguish IEEE 802.2/802.3 and RFC 894?
+
+```
+By the length and type field field（No.13 byte, No.14 byte）. 802.2/802.3 < 0x600, RFC 894 >= 600. 
+```
+
+## IPv4 Package Format
 
 ![ipv4](sources/ipv4_package.png)
 
@@ -32,9 +63,7 @@ Format
 
   - Used to prevent infinite looping of packets
 
-    ```
-    Discuss: Who can drop the packets? Host? Router?
-    ```
+    **Discuss: Who can drop the packets? Host? Router?**
 
   - TTL field is set at sending host and is decremented by 1 at each router
 
@@ -65,10 +94,23 @@ Format
 
 - Padding: ensures that header ends on a 4-byte boundary 
 
-### UDP Header Format
+## UDP Header Format
 
 ![udp_header](sources/udp_header.png)
 
-### TCP Packet Format
+## TCP Packet Format
 
 ![udp_header](sources/tcp_packet.png)
+
+## PPP Encapsulation
+
+- PPP frame format
+  - Flag: mark the beginning and ending of a frame
+  - Protocol: used to multiplex different protocol data
+  - No addressing, only two end hosts.
+
+![ch2-3](sources/ch2-3.png)
+
+
+## ARP Packet Format
+
