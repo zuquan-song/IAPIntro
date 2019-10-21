@@ -1,6 +1,8 @@
 Format
 ====
 
+![overall](sources/ch1-1.png)
+
 ### Ethernet Frame Format
 
 ![eth_frame](sources/ethernet_frame.png)
@@ -94,9 +96,22 @@ By the length and type field field（No.13 byte, No.14 byte）. 802.2/802.3 < 0x
 
 - Padding: ensures that header ends on a 4-byte boundary 
 
+
 ## UDP Header Format
 
 ![udp_header](sources/udp_header.png)
+
+- **Port Numbers** identify sending and receiving applications (processes). The maximum value for a port number is 216-1= 65,535 
+- **Message Length** is between 8 bytes (i.e., data field can be empty) and 65,535 bytes (length of UDP header and data in bytes) 
+- **Checksum** is for UDP header and UDP data 
+
+### UDP checksum
+
+- Optional: 
+1. set all 0’s if not calculated
+2. A calculated checksum can never be all 0’s.
+- Computed using the UDP header, UDP data and a pseudo-header as below.
+- All fields of pseudo-header are available in UDP layer
 
 ## TCP Packet Format
 
@@ -113,4 +128,8 @@ By the length and type field field（No.13 byte, No.14 byte）. 802.2/802.3 < 0x
 
 
 ## ARP Packet Format
+
+## ICMP
+### ICMP Unreachable Error
+![icmp_unreachable_error](sources/icmp_unreachable_error.png)
 

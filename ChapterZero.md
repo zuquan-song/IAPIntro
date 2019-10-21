@@ -31,7 +31,11 @@ Chapter Zero TCP/IP Overview
 ### Protocols in Different Layers
 
 ![ch1-1](sources/ch1-1.png)
+**DISCUSS**: Why RIP in the application layer and router could handle it?
 
+```
+https://networkengineering.stackexchange.com/questions/6330/at-which-osi-layer-does-rip-work
+```
 ### Internetworking Devices
 
 - Classified according to their functionality andlayers
