@@ -1,7 +1,9 @@
-Format
+#Format
 ====
 
 ![overall](sources/ch1-1.png)
+
+## Link Layer
 
 ### Ethernet Frame Format
 
@@ -42,6 +44,17 @@ Format
 ```
 By the length and type field field（No.13 byte, No.14 byte）. 802.2/802.3 < 0x600, RFC 894 >= 600. 
 ```
+
+### **IEEE 802.11 Frame Format** 
+
+![IEEE80211](sources/IEEE80211.png)
+
+- More fields than other data-link protocols 
+- High overhead: 
+  - 30 byte header 
+  - Four Address fields: BSSID, Source Address (SA), Destination Address (DA), Receiving Station Address (RA), Transmitting station Address (TA) depend on Frame Control setting 
+
+- Different frame types for different tasks: – Some fields are not presented in all types of frames 
 
 ## IPv4 Package Format
 
@@ -129,7 +142,50 @@ By the length and type field field（No.13 byte, No.14 byte）. 802.2/802.3 < 0x
 
 ## ARP Packet Format
 
+![arp_packet](sources/arp_packet.png)
+
+- 28 bytes long.
+
+- An ARP request or ARP reply is encapsulated in an Ethernet frame.
+
+  – The protocol type in Ethernet frame is set to 0x0806 for ARP messages.
+
+- Hardware Type - Specifies a hardware interface type for which the sender requires a response, i.e. Ethernet (1) in our case
+
+  **DISCUSS:** What's the usage of Hardware Type?
+
+- Protocol type - Specifies the type of high-level protocol address the sender has supplied, ie. IP (Ox0800) in our case
+
+  **DISCUSS:** What's the usage of Protocol Type?
+
+- Hlen - Hardware address length.
+
+- Plen - Protocol address length.
+
+- Operation field specifies ARP request (1), ARP reply (2), RARP request (3), or RARP reply (4).
+
+
+
 ## ICMP
+
+### Format
+
+![icmp](sources/icmp.png)
+
+
+
+### Types
+
+![types](sources/icmp_types.png)
+
 ### ICMP Unreachable Error
+
 ![icmp_unreachable_error](sources/icmp_unreachable_error.png)
 
+### ICMP Port Unreachable
+
+![ICMP Port Unreachable](sources/icmp_port_unreachable.png)
+
+### Echo Request and Reply
+
+![icmp_echo_request_reply](sources/icmp_echo_request_reply.png)
